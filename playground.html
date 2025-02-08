@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/main.css">
+  <title>Cleo</title>
+  <style>
+    /* Slideshow Container */
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
+
+    .slides {
+      display: none;
+    }
+
+    /* Next/previous buttons */
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      user-select: none;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+
+    /* Fade effect */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {opacity: 0.4;}
+      to {opacity: 1;}
+    }
+
+    /* Style for buttons */
+    .learn-more-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+   
+
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div id="navbar-left">
+      <span id="name">Daljit Kaur Design</span>
+    </div>
+    <ul id="navbar-right">
+      <li><a href="index.html">Work</a></li>
+      <li><a href="playground.html">Playground</a></li>
+      <li><a href="aboutme.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header></header>
+  <section class="project-details">
+    <div class="row">
+      <div class="column stats">
+        <h1>Where Design Meets <span id="dynamic-text-play">Experimentation.</span></h1>
+      </div>
+      <div class="column">
+        <p class="problem">Welcome to the Playground, a space for graphic design one-offs, concepts, personal explorations and experiments.</p>
+      </div>
+    </div>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+      <!-- Slide 1: Video -->
+      <div class="slides fade">
+        <video class="showcase-video" autoplay muted loop controls>
+          <source src="img/khehra_square.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Slide 2: Video -->
+      <div class="slides fade">
+        <video class="showcase-video-long" autoplay muted loop controls>
+          <source src="img/wolfhead_ad_rustic.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <!-- Slide 3: Image -->
+      <div class="slides fade">
+        <img src="img/statueportrait.avif" alt="" width="2100" height="1050" class="showcase">
+      </div>
+
+      <!-- Slide 4: Image -->
+      <div class="slides fade">
+        <img src="img/portraitstogether.png" alt="" width="2100" height="1050" class="showcase">
+      </div>
+
+      <!-- Slide 5: Image -->
+      <div class="slides fade">
+        <img src="img/rezaabedini_mockup.png" alt="" width="2100" height="1050" class="showcase">
+      </div>
+
+      <!-- Slide 6: Image -->
+      <div class="slides fade">
+        <img src="img/intothewilderness_mockup.png" alt="" width="4096" height="4096" class="showcase">
+      </div>
+
+      <!-- Navigation buttons -->
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="column center">
+      <p><a href="index.html" class="learn-more-btn">HOME</a></p>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h1><em>Say Hi</em></h1>
+        <nav>
+          <ul>
+            <li><a href="https://www.linkedin.com/in/daljit-kaur-khehra/">LinkedIn</a></li>
+            <li><a href="mailto:daljitkaurdesign@gmail.com">Email</a></li>
+            <li><a href="aboutme.html">About Me</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </section>
+
+  <script>
+    let slideIndex = 1; // Start from the first slide
+    const slides = document.getElementsByClassName("slides");
+
+    // Show the current slide
+    function showSlide(index) {
+      if (index > slides.length) {slideIndex = 1}
+      if (index < 1) {slideIndex = slides.length}
+
+      // Hide all slides
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+
+      // Show the current slide
+      slides[slideIndex - 1].style.display = "block";  
+    }
+
+    // Change slide based on user input (prev/next)
+    function changeSlide(n) {
+      slideIndex += n;
+      showSlide(slideIndex);
+    }
+
+    // Initially show the first slide
+    showSlide(slideIndex);
+  </script>
+</body>
+</html>
